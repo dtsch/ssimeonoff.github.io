@@ -1,0 +1,1626 @@
+<!DOCTYPE html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="description" content="Earth Cards">
+  <meta name="keywords" content="HTML,CSS,JavaScript">
+  <meta name="viewport" content='width=930'>
+
+  <link rel="shortcut icon" type="image/png" href="images-ark/favicon.png">
+  <link rel="stylesheet" type="text/css" href="css/mystyles-earrh.css">
+  <link rel="stylesheet" href="css/odometer.css">
+  <link rel="stylesheet" href="css/odometer-cards-earth.css">
+  <title>Earth Cards</title>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-116626580-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-116626580-1');
+</script>
+</head>
+
+<html>
+<body>
+  <div class="app-container">
+    <div class="list-container">
+      <div id="buttonsContainer">
+      <div id="buttonsContainer-header">
+        <div id="titleContainer">
+          <div class="title-style">EARTH CARDS LIST</div>
+        </div>
+        <a disabled id="btn-selectedCards" class="button btn-selected-cards disabled" title="open selected cards" href="no-selected-card.html" target="_blank">SELECTED
+          <div id="selectedCardsAmount">0</div>
+        </a>
+    </div>
+
+
+  <div id="buttonsContainer-body" style="padding-bottom: 10px;">
+    <div id="myBtnContainer1" style="line-height:55px;margin-bottom:10px;">
+      <button id="climate" class="button btn1 background-color-climate  " onclick="filterFunction(id)" title="filter Climate cards">CLIMATE</button>
+      <button id="ecosystem" class="button btn1 background-color-ecosystem  " onclick="filterFunction(id)" title="filter Ecosystem Cards">ECOSYSTEM</button>
+      <button id="island" class="button btn1 background-color-island  " onclick="filterFunction(id)" title="filter Island Cards">ISLAND</button>
+      <button id="fauna" class="button btn1 background-color-fauna  " onclick="filterFunction(id)" title="filter Fauna Cards">FAUNA</button>
+      <button id="earth" class="button btn1 background-color-earth  " onclick="filterFunction(id)" title="filter Earth cards">EARTH</button>
+    </div>
+
+    <div id="myBtnContainer2" style="line-height:55px;">
+      <button id="bush" class="button btn3 icon-bush" onclick="filterFunction(id)" title="filter by Bush icon"></button>
+      <button id="herb" class="button btn3 icon-herb" onclick="filterFunction(id)" title="filter by Herb icon"></button>
+      <button id="mushroom" class="button btn3 icon-mushroom" onclick="filterFunction(id)" title="filter by Mushroom icon"></button>
+      <button id="tree" class="button btn3 icon-tree"  onclick="filterFunction(id)" title="filter by Tree icon"></button>
+      <button id="terrain" class="button btn3 icon-terrain"  onclick="filterFunction(id)" title="filter by Terrain icon"></button>
+      <button id="event" class="button btn3 icon-event "  onclick="filterFunction(id)" title="filter by Event icon"></button>
+
+      <button id="sunny" class="button btn2 icon-sunny"  onclick="filterFunction(id)" title="filter by Sunny icon"></button>
+      <button id="wet" class="button btn2 icon-wet  " onclick="filterFunction(id)" title="filter by Wet icon"></button>
+      <button id="rocky" class="button btn2 icon-rocky  " onclick="filterFunction(id)" title="filter Rocky icon"></button>
+      <button id="cold" class="button btn2 icon-cold" onclick="filterFunction(id)" title="filter by Cold icon"></button>
+
+      <button id="green" class="button btn2 action-green"  onclick="filterFunction(id)" title="filter by Green actions"></button>
+      <button id="red" class="button btn2 action-red  " onclick="filterFunction(id)" title="filter by Red actions"></button>
+      <button id="blue" class="button btn2 action-blue  " onclick="filterFunction(id)" title="filter Blue actions"></button>
+      <button id="yellow" class="button btn2 action-yellow" onclick="filterFunction(id)" title="filter by Yellow actions"></button>
+      <button id="brown" class="button btn2 action-brown  " onclick="filterFunction(id)" title="filter Brown actions"></button>
+      <button id="black" class="button btn2 action-black" onclick="filterFunction(id)" title="filter by Black actions"></button>
+      
+      <button id="animal" class="button btn4 background-color-animal" onclick="filterFunction(id)" title="filter by animal name"></button>
+      <button id="color" class="button btn4 background-color-color" onclick="filterFunction(id)" title="filter by color name"></button>
+      <button id="geography" class="button btn4 background-color-geography" onclick="filterFunction(id)" title="filter by geographic name"></button>
+    </div>
+
+    <div id="myBtnContainer3" style="line-height:55px;">
+      <input type="text" id="myInput" oninput="filterFunction(id);" placeholder="Search by text ..." title="Search by card's title, number or keywords">   
+
+      <!-- output id="output0" for="slider0" class="output-label" style="color:#f25540; margin-left: 225px;">0</output>
+      <!-- input id="slider0" type="range" min="0" max="6" value="0" step="1" list="tickmarks" oninput="output0.value = slider0.value; filterFunction(id);" class="" style="width:200px;margin-right:70px;margin-left:15px;"><!-->
+      
+      <button id="sprout0" class="button btn5 icon-sprout0" onclick="filterFunction(id)" title="filter sprout 0 plants"></button>
+      <button id="sprout1" class="button btn5 icon-sprout1" onclick="filterFunction(id)" title="filter sprout 1 plants"></button>
+      <button id="sprout2" class="button btn5 icon-sprout2" onclick="filterFunction(id)" title="filter sprout 2 plants"></button>
+      <button id="sprout3" class="button btn5 icon-sprout3" onclick="filterFunction(id)" title="filter sprout 3 plants"></button>
+      <button id="sprout4" class="button btn5 icon-sprout4" onclick="filterFunction(id)" title="filter sprout 4 plants"></button>
+      <button id="sprout5" class="button btn5 icon-sprout5" onclick="filterFunction(id)" title="filter sprout 5 plants"></button>
+      <button id="sprout6" class="button btn5 icon-sprout6" onclick="filterFunction(id)" title="filter sprout 6 plants"></button>
+      
+      <!-- output id="output1" for="slider1" class="output-label" style="color:#f25540; margin-left: 225px;">0</output>
+      <!-- input id="slider1" type="range" min="0" max="8" value="0" step="1" list="tickmarks" oninput="output1.value = slider1.value; filterFunction(id);" class="" style="width:200px;margin-right:70px;margin-left:15px;"><!-->
+      
+      <button id="height0" class="button btn5 icon-height0" onclick="filterFunction(id)" title="filter height 0 plants"></button>
+      <button id="height1" class="button btn5 icon-height1" onclick="filterFunction(id)" title="filter height 1 plants"></button>
+      <button id="height2" class="button btn5 icon-height2" onclick="filterFunction(id)" title="filter height 2 plants"></button>
+      <button id="height3" class="button btn5 icon-height3" onclick="filterFunction(id)" title="filter height 3 plants"></button>
+      <button id="height4" class="button btn5 icon-height4" onclick="filterFunction(id)" title="filter height 4 plants"></button>
+      <button id="height5" class="button btn5 icon-height5" onclick="filterFunction(id)" title="filter height 5 plants"></button>
+      <button id="height6" class="button btn5 icon-height6" onclick="filterFunction(id)" title="filter height 6 plants"></button>
+      <button id="height7" class="button btn5 icon-height7" onclick="filterFunction(id)" title="filter height 7 plants"></button>
+      <button id="height8" class="button btn5 icon-height8" onclick="filterFunction(id)" title="filter height 8 plants"></button>
+
+      <!-- output id="output2" for="slider2" class="output-label" style="margin-left: 110px;">0</output>
+      <!-- input id="slider2" type="range" min="0" max="13" value="-0" step="1" list="tickmarks" oninput="output2.value = slider2.value; filterFunction(id);" class="" style="width:100px;"><!--> 
+      
+      <button id="heightVP0" class="button btn5 icon-heightVP0" onclick="filterFunction(id)" title="filter height VP 0 plants"></button>
+      <button id="heightVP1" class="button btn5 icon-heightVP1" onclick="filterFunction(id)" title="filter height VP 1 plants"></button>
+      <button id="heightVP2" class="button btn5 icon-heightVP2" onclick="filterFunction(id)" title="filter height VP 2 plants"></button>
+      <button id="heightVP3" class="button btn5 icon-heightVP3" onclick="filterFunction(id)" title="filter height VP 3 plants"></button>
+      <button id="heightVP4" class="button btn5 icon-heightVP4" onclick="filterFunction(id)" title="filter height VP 4 plants"></button>
+      <button id="heightVP5" class="button btn5 icon-heightVP5" onclick="filterFunction(id)" title="filter height VP 5 plants"></button>
+      <button id="heightVP6" class="button btn5 icon-heightVP6" onclick="filterFunction(id)" title="filter height VP 6 plants"></button>
+      <button id="heightVP7" class="button btn5 icon-heightVP7" onclick="filterFunction(id)" title="filter height VP 7 plants"></button>
+      <button id="heightVP8" class="button btn5 icon-heightVP8" onclick="filterFunction(id)" title="filter height VP 8 plants"></button>
+      <button id="heightVP9" class="button btn5 icon-heightVP9" onclick="filterFunction(id)" title="filter height VP 9 plants"></button>
+      <button id="heightVP10" class="button btn5 icon-heightVP10" onclick="filterFunction(id)" title="filter height VP 10 plants"></button>
+      <button id="heightVP11" class="button btn5 icon-heightVP11" onclick="filterFunction(id)" title="filter height VP 11 plants"></button>
+      <button id="heightVP12" class="button btn5 icon-heightVP12" onclick="filterFunction(id)" title="filter height VP 12 plants"></button>
+      <button id="heightVP13" class="button btn5 icon-heightVP13" onclick="filterFunction(id)" title="filter height VP 13 plants"></button> 
+
+      <!-- output id="output3" for="slider3" class="output-label" style="margin-left: 110px;">0</output>
+      <!-- input id="slider3" type="range" min="0" max="15" value="-0" step="1" list="tickmarks" oninput="output3.value = slider3.value; filterFunction(id);" class="" style="width:100px;"><!--> 
+      
+      <button id="cost0" class="button btn5 icon-cost0" onclick="filterFunction(id)" title="filter cost 0 cards"></button>
+      <button id="cost1" class="button btn5 icon-cost1" onclick="filterFunction(id)" title="filter cost 1 cards"></button>
+      <button id="cost2" class="button btn5 icon-cost2" onclick="filterFunction(id)" title="filter cost 2 cards"></button>
+      <button id="cost3" class="button btn5 icon-cost3" onclick="filterFunction(id)" title="filter cost 3 cards"></button>
+      <button id="cost4" class="button btn5 icon-cost4" onclick="filterFunction(id)" title="filter cost 4 cards"></button>
+      <button id="cost5" class="button btn5 icon-cost5" onclick="filterFunction(id)" title="filter cost 5 cards"></button>
+      <button id="cost6" class="button btn5 icon-cost6" onclick="filterFunction(id)" title="filter cost 6 cards"></button>
+      <button id="cost7" class="button btn5 icon-cost7" onclick="filterFunction(id)" title="filter cost 7 cards"></button>
+      <button id="cost8" class="button btn5 icon-cost8" onclick="filterFunction(id)" title="filter cost 8 cards"></button>
+      <button id="cost9" class="button btn5 icon-cost9" onclick="filterFunction(id)" title="filter cost 9 cards"></button>
+      <button id="cost10" class="button btn5 icon-cost10" onclick="filterFunction(id)" title="filter cost 10 cards"></button>
+      <button id="cost11" class="button btn5 icon-cost11" onclick="filterFunction(id)" title="filter cost 11 cards"></button>
+      <button id="cost12" class="button btn5 icon-cost12" onclick="filterFunction(id)" title="filter cost 12 cards"></button>
+      <button id="cost13" class="button btn5 icon-cost13" onclick="filterFunction(id)" title="filter cost 13 cards"></button> 
+      <button id="cost14" class="button btn5 icon-cost14" onclick="filterFunction(id)" title="filter cost 14 cards"></button>  
+      <button id="cost15" class="button btn5 icon-cost15" onclick="filterFunction(id)" title="filter cost 15 cards"></button> 
+
+      <!-- output id="output4" for="slider4" class="output-label" style="color: #8bb8da">0</output> 
+      <!-- input id="slider4" type="range" min="-4" max="10" value="0" step="1" list="tickmarks" oninput="output4.value = slider4.value; filterFunction(id);" class="" style="margin-right:0px;"><!-->
+       
+      <button id="VPn4" class="button btn5 icon-VPn4" onclick="filterFunction(id)" title="filter VP -4 cards"></button>
+      <button id="VPn3" class="button btn5 icon-VPn3" onclick="filterFunction(id)" title="filter VP -3 cards"></button> 
+      <button id="VPn2" class="button btn5 icon-VPn2" onclick="filterFunction(id)" title="filter VP -2 cards"></button>
+      <button id="VPn1" class="button btn5 icon-VPn1" onclick="filterFunction(id)" title="filter VP -1 cards"></button>
+      <button id="VP0" class="button btn5 icon-VP0" onclick="filterFunction(id)" title="filter VP 0 cards"></button>
+      <button id="VP1" class="button btn5 icon-VP1" onclick="filterFunction(id)" title="filter VP 1 cards"></button>
+      <button id="VP2" class="button btn5 icon-VP2" onclick="filterFunction(id)" title="filter VP 2 cards"></button>
+      <button id="VP3" class="button btn5 icon-VP3" onclick="filterFunction(id)" title="filter VP 3 cards"></button>
+      <button id="VP4" class="button btn5 icon-VP4" onclick="filterFunction(id)" title="filter VP 4 cards"></button>
+      <button id="VP5" class="button btn5 icon-VP5" onclick="filterFunction(id)" title="filter VP 5 cards"></button>
+      <button id="VP6" class="button btn5 icon-VP6" onclick="filterFunction(id)" title="filter VP 6 cards"></button>
+      <button id="VP7" class="button btn5 icon-VP7" onclick="filterFunction(id)" title="filter VP 7 cards"></button>
+      <button id="VP8" class="button btn5 icon-VP8" onclick="filterFunction(id)" title="filter VP 8 cards"></button>
+      <button id="VP9" class="button btn5 icon-VP9" onclick="filterFunction(id)" title="filter VP 9 cards"></button>
+      <button id="VP10" class="button btn5 icon-VP10" onclick="filterFunction(id)" title="filter VP 10 cards"></button> 
+
+      
+    </div>
+
+    <div id="contentFilters">
+      <form id="sortButtons">
+        <fieldset style="margin-bottom: -30px;">
+          <legend class="sort-title">SORT CARDS BY</legend>
+          <input type="radio" name='radio' id="radio-choice-1" value="on" checked="checked" onclick="sortByID();"style="display:none;">
+          <label class= "btn-sort" for="radio-choice-1">TYPE</label>
+          <input type="radio" name='radio' id="radio-choice-2" value="off" onclick="sortByPriceUp();" style="display:none;">
+          <label class= "btn-sort" for="radio-choice-2" >COST UP</label>
+          <input type="radio" name='radio' id="radio-choice-3" value="other" onclick="sortByPriceDown();" style="display:none;">
+          <label class= "btn-sort" for="radio-choice-3">COST DOWN</label>
+        </fieldset>
+      </form>
+
+      <button title="decrease Price filter by 1" class="button2   btn-price" onclick="reduceOne()" title="decrease Price filter by 1">-</button>
+      <input  type="number" title="filter by Price" id="price" oninput="filterFunction(id);" value="0" min="0" max="50"></input>
+      <button class="button2   btn-price" style="margin-right:10px;" onclick="increaseOne()" title="increase Price filter by 1">+</button>
+
+      <button id="soil" class="button btn-tile soil" onclick="filterFunction(id)" title="filter cards which increase soil" style="    background-size: 36px 30px !important;background-position: 10px;"></button>
+      <button id="growth" class="button btn-tile growth" onclick="filterFunction(id)" title="filter cards which increase growth" style="background-size: 11px 34px !important;background-position: 22px;"></button>
+      <button id="sprouts" class="button btn-tile sprouts" onclick="filterFunction(id)" title="filter cards which increase sprouts" style="background-position: 10px;"></button>
+      <button id="compost-hand" class="button btn-tile compost-hand" onclick="filterFunction(id)" title="filter cards which increase compost from hand" style="background-position: 10px;background-size: 40px 34px !important;"></button>
+      <button id="compost-deck" class="button btn-tile compost-deck" onclick="filterFunction(id)" title="filter cards which increase compost from deck" style="background-position: 10px 3px;"></button>
+      <button id="draw-cards" class="button btn-tile draw-cards" onclick="filterFunction(id)" title="filter cards which draw cards" style="background-size: 45px 30px !important;
+      background-position: 5px 4px;
+  "></button>
+
+
+      
+    </div>
+  </div>
+    <div id="buttonsContainer-footer">
+      <button id="reset" class="button2 btn-reset" onclick="clearInput();showAll();" title="Reset all selected filters">RESET</button>
+
+      <div class="card-footer" style="margin-left:0px"><div class="card-footer-plants">PLANTS</div></div>
+      <div id="totalPlants" class="totalCardsCount odometer" data-minintegerlen="3"></div>
+
+      <div class="card-footer"><div class="card-footer-terrain">TERRAIN</div></div>
+      <div id="totalTerrains" class="totalCardsCount odometer"></div>
+
+      <div class="card-footer" ><div class="card-footer-events">EVENTS</div></div>
+      <div id="totalEvents" class="totalCardsCount odometer"></div>
+
+      <div class="card-footer" ><div class=" card-footer-climate">CLIMATE</div></div>
+      <div id="totalClimates" class="totalCardsCount odometer"></div>
+
+      <div class="card-footer" ><div class=" card-footer-island">ISLANDS</div></div>
+      <div id="totalIslands" class="totalCardsCount odometer"></div>
+
+      <div class="card-footer" ><div class=" card-footer-ecosystem">ECOSYSTEMS</div></div>
+      <div id="totalEcosystems" class="totalCardsCount odometer"></div>
+
+      <div class="card-footer" ><div class=" card-footer-fauna">FAUNA</div></div>
+      <div id="totalFauna" class="totalCardsCount odometer"></div>
+
+    </div>
+
+  </div>
+
+  <!--EARTH CARDS-->
+  <ul class="myUL" style="clear:both;">
+
+    <!-- TERRAIN CARDS-->
+      <li onclick="getClickedCard();"
+        class="EarthCards1 filterDiv earth terrain cost4 VP2 sunny rocky cold action-green action-brown">
+        <div class="name">Prairie</div>
+        <div class="cost">4</div>
+        <div class="VP">2</div>
+        <div class="card-count">19%</div>
+      </li>
+
+      <li onclick="getClickedCard();"
+        class="EarthCards1 filterDiv earth terrain cost2 VP0 sunny wet rocky cold action-green action-brown">
+        <div class="name">Shrubland</div>
+        <div class="cost">2</div>
+        <div class="VP">0</div>
+        <div class="card-count">19%</div>
+      </li>
+
+      <li onclick="getClickedCard();"
+        class="EarthCards1 filterDiv earth terrain cost9 VP0 wet rocky cold action-brown">
+        <div class="name">Mountain Ridge</div>
+        <div class="cost">9</div>
+        <div class="VP">0</div>
+        <div class="card-count">47%</div>
+      </li>
+
+      <li onclick="getClickedCard();"
+        class="EarthCards1 filterDiv earth terrain cost7 VP9 sunny wet rocky cold action-brown">
+        <div class="name">Beach</div>
+        <div class="cost">7</div>
+        <div class="VP">9</div>
+      </li>
+
+      <li onclick="getClickedCard();"
+        class="EarthCards1 filterDiv earth terrain cost9 VP10 rocky cold action-brown">
+        <div class="name">Crater</div>
+        <div class="cost">9</div>
+        <div class="VP">10</div>
+        <div class="card-count">19%</div>
+      </li>
+
+      <li onclick="getClickedCard();"
+        class="EarthCards1 filterDiv earth terrain cost2 VP1 sunny wet rocky cold action-green action-brown">
+        <div class="name">Pasture</div>
+        <div class="cost">2</div>
+        <div class="VP">1</div>
+        <div class="card-count">19%</div>
+      </li>
+
+      <li onclick="getClickedCard();"
+        class="EarthCards1 filterDiv earth terrain cost4 VP4 rocky cold action-green action-brown">
+        <div class="name">Mountain Forest</div>
+        <div class="cost">4</div>
+        <div class="VP">4</div>
+        <div class="card-count">19%</div>
+      </li>
+
+      <li onclick="getClickedCard();"
+        class="EarthCards1 filterDiv earth terrain cost13 VP0 wet rocky cold action-brown">
+        <div class="name">Rocky Mountains</div>
+        <div class="cost">13</div>
+        <div class="VP">0</div>
+        <div class="card-count">47%</div>
+      </li>
+
+      <li onclick="getClickedCard();"
+        class="EarthCards1 filterDiv earth terrain cost0 VP2 sunny wet rocky cold action-brown">
+        <div class="name">Alfisol</div>
+        <div class="cost">0</div>
+        <div class="VP">2</div>
+        <div class="card-count">19%</div>
+      </li>
+
+      <li onclick="getClickedCard();"
+        class="EarthCards1 filterDiv earth terrain cost0 VP2 sunny wet rocky cold action-brown">
+        <div class="name">Ardisol</div>
+        <div class="cost">0</div>
+        <div class="VP">2</div>
+        <div class="card-count">19%</div>
+      </li>
+
+      <li onclick="getClickedCard();"
+        class="EarthCards1 filterDiv earth terrain cost0 VP2 sunny wet rocky cold action-brown">
+        <div class="name">Arable Land</div>
+        <div class="cost">0</div>
+        <div class="VP">2</div>
+        <div class="card-count">19%</div>
+      </li>
+
+      <li onclick="getClickedCard();"
+        class="EarthCards1 filterDiv earth terrain cost0 VP2 sunny wet rocky cold action-brown">
+        <div class="name">Organic Soil</div>
+        <div class="cost">0</div>
+        <div class="VP">2</div>
+        <div class="card-count">19%</div>
+      </li>
+
+      <li onclick="getClickedCard();"
+        class="EarthCards1 filterDiv earth terrain cost2 VP5 sunny rocky action-brown">
+        <div class="name">Solidified Magma</div>
+        <div class="cost">2</div>
+        <div class="VP">5</div>
+        <div class="card-count">47%</div>
+      </li>
+
+      <li onclick="getClickedCard();"
+        class="EarthCards1 filterDiv earth terrain cost2 VP5 wet cold action-brown">
+        <div class="name">Water Pools</div>
+        <div class="cost">2</div>
+        <div class="VP">5</div>
+        <div class="card-count">47%</div>
+      </li>
+
+      <li onclick="getClickedCard();"
+        class="EarthCards1 filterDiv earth terrain cost2 VP5 sunny rocky action-brown">
+        <div class="name">Sand Dunes</div>
+        <div class="cost">2</div>
+        <div class="VP">5</div>
+        <div class="card-count">47%</div>
+      </li>
+
+      <li onclick="getClickedCard();"
+        class="EarthCards1 filterDiv earth terrain cost2 VP5 rocky cold action-brown">
+        <div class="name">Tundra</div>
+        <div class="cost">2</div>
+        <div class="VP">5</div>
+        <div class="card-count">47%</div>
+      </li>
+
+      <li onclick="getClickedCard();"
+        class="EarthCards1 filterDiv earth terrain cost2 VP9 wet rocky cold action-brown">
+        <div class="name">Clay Soil</div>
+        <div class="cost">2</div>
+        <div class="VP">9</div>
+        <div class="card-count">19%</div>
+      </li>
+
+      <li onclick="getClickedCard();"
+        class="EarthCards1 filterDiv earth terrain cost2 VP9 sunny rocky cold action-brown">
+        <div class="name">Sandy Soil</div>
+        <div class="cost">2</div>
+        <div class="VP">9</div>
+        <div class="card-count">19%</div>
+      </li>
+
+      <li onclick="getClickedCard();"
+        class="EarthCards1 filterDiv earth terrain cost2 VP9 wet rocky cold action-brown">
+        <div class="name">Riverside</div>
+        <div class="cost">2</div>
+        <div class="VP">9</div>
+        <div class="card-count">19%</div>
+      </li>
+
+      <li onclick="getClickedCard();"
+        class="EarthCards1 filterDiv earth terrain cost2 VP9 wet rocky cold action-brown">
+        <div class="name">Fallen Sequoia</div>
+        <div class="cost">2</div>
+        <div class="VP">9</div>
+        <div class="card-count">19%</div>
+      </li>
+
+      <li onclick="getClickedCard();"
+        class="EarthCards1 filterDiv earth terrain cost13 VP0 sunny rocky cold action-brown">
+        <div class="name">Desert</div>
+        <div class="cost">13</div>
+        <div class="VP">0</div>
+        <div class="card-count">47%</div>
+      </li>
+
+      <li onclick="getClickedCard();"
+        class="EarthCards1 filterDiv earth terrain cost13 VP0 wet rocky cold action-brown">
+        <div class="name">Taiga</div>
+        <div class="cost">13</div>
+        <div class="VP">0</div>
+        <div class="card-count">47%</div>
+      </li>
+
+      <li onclick="getClickedCard();"
+        class="EarthCards1 filterDiv earth terrain cost13 VP0 sunny wet cold action-brown">
+        <div class="name">Wetland</div>
+        <div class="cost">13</div>
+        <div class="VP">0</div>
+        <div class="card-count">47%</div>
+      </li>
+
+      <li onclick="getClickedCard();"
+        class="EarthCards1 filterDiv earth terrain cost4 VP2 wet action-green action-brown">
+        <div class="name">Tropical Forest</div>
+        <div class="cost">4</div>
+        <div class="VP">2</div>
+        <div class="card-count">19%</div>
+      </li>
+
+      <li onclick="getClickedCard();"
+        class="EarthCards1 filterDiv earth terrain cost5 VP3 sunny wet rocky cold action-green action-brown">
+        <div class="name">Boreal Forest</div>
+        <div class="cost">5</div>
+        <div class="VP">3</div>
+        <div class="card-count">19%</div>
+      </li>
+
+      <li onclick="getClickedCard();"
+        class="EarthCards1 filterDiv earth terrain cost4 VP2 sunny wet rocky cold action-green action-brown">
+        <div class="name">Badlands</div>
+        <div class="cost">4</div>
+        <div class="VP">2</div>
+        <div class="card-count">19%</div>
+      </li>
+
+      <li onclick="getClickedCard();"
+        class="EarthCards1 filterDiv earth terrain cost4 VP4 wet rocky cold action-green action-brown">
+        <div class="name">Mixed Forest</div>
+        <div class="cost">4</div>
+        <div class="VP">4</div>
+        <div class="card-count">19%</div>
+      </li>
+
+      <li onclick="getClickedCard();"
+        class="EarthCards1 filterDiv earth terrain cost4 VP2 sunny wet rocky action-green action-brown">
+        <div class="name">Scrubland</div>
+        <div class="cost">4</div>
+        <div class="VP">2</div>
+        <div class="card-count">19%</div>
+      </li>
+
+      <li onclick="getClickedCard();"
+        class="EarthCards1 filterDiv earth terrain cost4 VP2 wet action-green action-brown">
+        <div class="name">Grassland</div>
+        <div class="cost">4</div>
+        <div class="VP">2</div>
+        <div class="card-count">19%</div>
+      </li>
+
+      <li onclick="getClickedCard();"
+        class="EarthCards1 filterDiv earth terrain cost2 VP1 sunny wet rocky cold action-green action-brown">
+        <div class="name">Cloud Forest</div>
+        <div class="cost">2</div>
+        <div class="VP">1</div>
+        <div class="card-count">19%</div>
+      </li>
+
+      <li onclick="getClickedCard();"
+        class="EarthCards1 filterDiv earth terrain cost9 VP0 sunny wet rocky action-brown">
+        <div class="name">Plain</div>
+        <div class="cost">9</div>
+        <div class="VP">0</div>
+        <div class="card-count">47%</div>
+      </li>
+
+      <li onclick="getClickedCard();"
+        class="EarthCards1 filterDiv earth terrain cost1 VP0 wet action-green action-brown">
+        <div class="name">Swamp</div>
+        <div class="cost">1</div>
+        <div class="VP">0</div>
+        <div class="card-count">19%</div>
+      </li>
+
+      <li onclick="getClickedCard();"
+        class="EarthCards1 filterDiv earth terrain cost9 VP0 wet rocky cold action-brown">
+        <div class="name">Stream</div>
+        <div class="cost">9</div>
+        <div class="VP">0</div>
+        <div class="card-count">479%</div>
+      </li>
+
+      <li onclick="getClickedCard();"
+        class="EarthCards1 filterDiv earth terrain cost9 VP0 wet rocky cold action-brown">
+        <div class="name">Glacier</div>
+        <div class="cost">9</div>
+        <div class="VP">0</div>
+        <div class="card-count">47%</div>
+      </li>
+
+      <li onclick="getClickedCard();"
+        class="EarthCards1 filterDiv earth terrain cost9 VP10 sunny wet action-brown">
+        <div class="name">Lake</div>
+        <div class="cost">9</div>
+        <div class="VP">10</div>
+        <div class="card-count">19%</div>
+      </li>
+    
+      <li onclick="getClickedCard();"
+        class="EarthCards1 filterDiv earth terrain cost9 VP10 sunny rocky action-brown">
+        <div class="name">Meadow</div>
+        <div class="cost">9</div>
+        <div class="VP">10</div>
+        <div class="card-count">19%</div>
+      </li>
+
+      <li onclick="getClickedCard();"
+        class="EarthCards1 filterDiv earth terrain cost9 VP10 sunny wet action-brown">
+        <div class="name">Forest Edge</div>
+        <div class="cost">9</div>
+        <div class="VP">10</div>
+        <div class="card-count">19%</div>
+      </li>
+
+      <li onclick="getClickedCard();"
+        class="EarthCards1 filterDiv earth terrain cost14 VP0 wet rocky cold action-brown">
+        <div class="name">Giant Forest</div>
+        <div class="cost">14</div>
+        <div class="VP">0</div>
+        <div class="card-count">16%</div>
+      </li>
+
+      <li onclick="getClickedCard();"
+        class="EarthCards1 filterDiv earth terrain cost9 VP0 sunny wet rocky action-brown">
+        <div class="name">Jungle</div>
+        <div class="cost">9</div>
+        <div class="VP">0</div>
+        <div class="card-count">44%</div>
+      </li>
+
+      <li onclick="getClickedCard();"
+        class="EarthCards1 filterDiv earth terrain cost11 VP0 wet rocky cold action-brown">
+        <div class="name">Redwood Forest</div>
+        <div class="cost">11</div>
+        <div class="VP">0</div>
+        <div class="card-count">53%</div>
+      </li>
+
+      <li onclick="getClickedCard();"
+        class="EarthCards1 filterDiv earth terrain cost14 VP0 sunny wet rocky cold action-brown">
+        <div class="name">Rain Forest</div>
+        <div class="cost">14</div>
+        <div class="VP">0</div>
+        <div class="card-count">67%</div>
+      </li>
+
+      <li onclick="getClickedCard();"
+        class="EarthCards1 filterDiv earth terrain cost9 VP0 sunny wet rocky action-brown">
+        <div class="name">Savanna</div>
+        <div class="cost">9</div>
+        <div class="VP">0</div>
+        <div class="card-count">32%</div>
+      </li>
+
+      <li onclick="getClickedCard();"
+        class="EarthCards1 filterDiv earth terrain cost9 VP0 wet rocky cold action-brown">
+        <div class="name">River</div>
+        <div class="cost">9</div>
+        <div class="VP">0</div>
+        <div class="card-count">32%</div>
+      </li>
+
+      <li onclick="getClickedCard();"
+        class="EarthCards1 filterDiv earth terrain cost9 VP0 sunny rocky cold action-brown">
+        <div class="name">Volcano</div>
+        <div class="cost">9</div>
+        <div class="VP">0</div>
+        <div class="card-count">32%</div>
+      </li>
+
+      <li onclick="getClickedCard();"
+        class="EarthCards1 filterDiv earth terrain cost2 VP0 sunny rocky cold action-brown">
+        <div class="name">Permafrost</div>
+        <div class="cost">2</div>
+        <div class="VP">0</div>
+        <div class="card-count">51%</div>
+      </li>
+
+      <li onclick="getClickedCard();"
+        class="EarthCards1 filterDiv earth terrain cost9 VP0 sunny wet cold action-brown">
+        <div class="name">Fertile Land</div>
+        <div class="cost">9</div>
+        <div class="VP">0</div>
+        <div class="card-count">49%</div>
+      </li>
+
+      <li onclick="getClickedCard();"
+        class="EarthCards1 filterDiv earth terrain cost15 VP4 sunny wet cold action-brown">
+        <div class="name">Blossoming Lands</div>
+        <div class="cost">15</div>
+        <div class="VP">4</div>
+        <div class="card-count">28%</div>
+      </li>
+
+      <li onclick="getClickedCard();"
+        class="EarthCards1 filterDiv earth terrain cost5 VP1 sunny rocky cold action-brown">
+        <div class="name">Impoverished Land</div>
+        <div class="cost">5</div>
+        <div class="VP">1</div>
+        <div class="card-count">72%</div>
+      </li>
+
+      <li onclick="getClickedCard();"
+        class="EarthCards1 filterDiv earth terrain cost12 VP1 sunny rocky cold action-brown">
+        <div class="name">Mineral-rich Land</div>
+        <div class="cost">12</div>
+        <div class="VP">1</div>
+      </li>
+
+      <li onclick="getClickedCard();"
+        class="EarthCards1 filterDiv earth terrain cost12 VP1 sunny wet rocky action-brown">
+        <div class="name">Blooming Land</div>
+        <div class="cost">12</div>
+        <div class="VP">1</div>
+      </li>
+
+      <li onclick="getClickedCard();"
+        class="EarthCards1 filterDiv earth terrain cost12 VP1 wet rocky cold action-brown">
+        <div class="name">Putrefied Land</div>
+        <div class="cost">12</div>
+        <div class="VP">1</div>
+      </li>
+
+      <li onclick="getClickedCard();"
+        class="EarthCards1 filterDiv earth terrain cost7 VP6 sunny wet rocky cold action-green action-brown">
+        <div class="name">Extinct Volcano</div>
+        <div class="cost">7</div>
+        <div class="VP">6</div>
+      </li>
+
+      <li onclick="getClickedCard();"
+        class="EarthCards1 filterDiv earth terrain cost6 VP6 sunny wet cold action-green action-brown">
+        <div class="name">Cirmcumpolar Barren Land</div>
+        <div class="cost">6</div>
+        <div class="VP">6</div>
+      </li>
+
+      <li onclick="getClickedCard();"
+        class="EarthCards1 filterDiv earth terrain cost8 VP8 sunny rocky action-green action-brown">
+        <div class="name">Fertile Rainless Land</div>
+        <div class="cost">8</div>
+        <div class="VP">8</div>
+      </li>
+
+      <li onclick="getClickedCard();"
+        class="EarthCards1 filterDiv earth terrain cost1 VP0 sunny wet rocky cold action-green action-brown">
+        <div class="name">Lava Plain</div>
+        <div class="cost">1</div>
+        <div class="VP">0</div>
+      </li>
+
+      <li onclick="getClickedCard();"
+        class="EarthCards1 filterDiv earth terrain cost3 VP0 wet rocky action-green action-brown">
+        <div class="name">Alluvial Sediments</div>
+        <div class="cost">3</div>
+        <div class="VP">0</div>
+      </li>
+
+      <li onclick="getClickedCard();"
+        class="EarthCards1 filterDiv earth terrain cost1 VP0 sunny wet rocky cold action-green action-brown">
+        <div class="name">Flatland</div>
+        <div class="cost">1</div>
+        <div class="VP">0</div>
+      </li>
+
+      <li onclick="getClickedCard();"
+        class="EarthCards1 filterDiv earth terrain cost10 VP4 sunny wet rocky action-black">
+        <div class="name">Flooded Delta</div>
+        <div class="cost">10</div>
+        <div class="VP">4</div>
+      </li>
+
+      <li onclick="getClickedCard();"
+        class="EarthCards1 filterDiv earth terrain cost8 VP4 sunny wet rocky action-black">
+        <div class="name">Bamboo Forest</div>
+        <div class="cost">8</div>
+        <div class="VP">4</div>
+      </li>
+
+      <li onclick="getClickedCard();"
+        class="EarthCards1 filterDiv earth terrain cost9 VP0 sunny wet rocky cold action-black">
+        <div class="name">Monsoon Irrigated Plateau</div>
+        <div class="cost">9</div>
+        <div class="VP">0</div>
+      </li>
+
+      <li onclick="getClickedCard();"
+        class="EarthCards1 filterDiv earth terrain cost1 VP4 sunny rocky cold action-black">
+        <div class="name">Volcanic Grounds</div>
+        <div class="cost">1</div>
+        <div class="VP">4</div>
+      </li>
+
+      <li onclick="getClickedCard();"
+        class="EarthCards1 filterDiv earth terrain cost1 VP4 sunny wet rocky cold action-black">
+        <div class="name">Compost-filled Grounds</div>
+        <div class="cost">1</div>
+        <div class="VP">4</div>
+      </li>
+    
+      <li onclick="getClickedCard();"
+        class="EarthCards1 filterDiv earth terrain cost0 VP9 sunny wet rocky cold action-black">
+        <div class="name">Volcanic Ash Plain</div>
+        <div class="cost">0</div>
+        <div class="VP">9</div>
+      </li>
+
+      <li onclick="getClickedCard();"
+        class="EarthCards1 filterDiv earth terrain cost2 VP2 sunny wet rocky cold action-black">
+        <div class="name">Sunny Hillside</div>
+        <div class="cost">2</div>
+        <div class="VP">2</div>
+      </li>
+
+      <li onclick="getClickedCard();"
+        class="EarthCards1 filterDiv earth terrain cost4 VP4 sunny wet rocky action-black">
+        <div class="name">Luxuriant Woodland</div>
+        <div class="cost">4</div>
+        <div class="VP">4</div>
+      </li>
+
+      <li onclick="getClickedCard();"
+        class="EarthCards1 filterDiv earth terrain cost12 VP0 sunny wet rocky cold action-brown">
+        <div class="name">Gigantic Island</div>
+        <div class="cost">12</div>
+        <div class="VP">0</div>
+      </li>
+
+<!--PLANT CARDS-->
+    
+<!--EVENT CARDS-->
+      <li onclick="getClickedCard();"
+        class="EarthCards5 filterDiv earth event VPn1 action-black">
+        <div class="name">Hurricane</div>
+        <div class="VP">-1</div>
+      </li>
+
+      <li onclick="getClickedCard();"
+        class="EarthCards5 filterDiv earth event VPn4 action-black">
+        <div class="name">Tsunami</div>
+        <div class="VP">-4</div>
+      </li>
+
+      <li onclick="getClickedCard();"
+        class="EarthCards5 filterDiv earth event VPn1 action-black">
+        <div class="name">Earthquake Fissure</div>
+        <div class="VP">-1</div>
+      </li>
+
+      <li onclick="getClickedCard();"
+        class="EarthCards5 filterDiv earth event VPn2 action-black">
+        <div class="name">Volcanic Eruption</div>
+        <div class="VP">-2</div>
+      </li>
+
+      <li onclick="getClickedCard();"
+        class="EarthCards5 filterDiv earth event VPn2 action-black">
+        <div class="name">Tornado</div>
+        <div class="VP">-2</div>
+      </li>
+
+      <li onclick="getClickedCard();"
+        class="EarthCards5 filterDiv earth event VPn2 action-black">
+        <div class="name">Typhoon</div>
+        <div class="VP">-2</div>
+      </li>
+
+      <li onclick="getClickedCard();"
+        class="EarthCards5 filterDiv earth event VP0 action-black">
+        <div class="name">Tropical Storm</div>
+        <div class="VP">0</div>
+      </li>
+
+      <li onclick="getClickedCard();"
+        class="EarthCards5 filterDiv earth event VP1 action-black">
+        <div class="name">Tornado</div>
+        <div class="VP">1</div>
+      </li>
+
+      <li onclick="getClickedCard();"
+        class="EarthCards5 filterDiv earth event VPn2 action-black">
+        <div class="name">Blizzard</div>
+        <div class="VP">-2</div>
+      </li>
+
+      <li onclick="getClickedCard();"
+        class="EarthCards5 filterDiv earth event VP0 action-black">
+        <div class="name">Hail</div>
+        <div class="VP">0</div>
+      </li>
+
+      <li onclick="getClickedCard();"
+        class="EarthCards5 filterDiv earth event VPn3 action-black">
+        <div class="name">Lava Flow</div>
+        <div class="VP">-3</div>
+      </li>
+
+      <li onclick="getClickedCard();"
+        class="EarthCards5 filterDiv earth event VP0 action-black">
+        <div class="name">Lava Tube</div>
+        <div class="VP">0</div>
+      </li>
+
+      <li onclick="getClickedCard();"
+        class="EarthCards5 filterDiv earth event VPn2 action-black">
+        <div class="name">Lave Lake</div>
+        <div class="VP">-2</div>
+      </li>
+
+      <li onclick="getClickedCard();"
+        class="EarthCards5 filterDiv earth event VP0 action-black">
+        <div class="name">High Tide</div>
+        <div class="VP">0</div>
+      </li>
+
+      <li onclick="getClickedCard();"
+        class="EarthCards5 filterDiv earth event VP0 action-black">
+        <div class="name">Low Tide</div>
+        <div class="VP">0</div>
+      </li>
+
+      <li onclick="getClickedCard();"
+        class="EarthCards5 filterDiv earth event VP0 action-black">
+        <div class="name">Earthquake</div>
+        <div class="VP">0</div>
+      </li>
+
+      <li onclick="getClickedCard();"
+        class="EarthCards5 filterDiv earth event VPn3 action-black">
+        <div class="name">Heat Wave</div>
+        <div class="VP">-3</div>
+      </li>
+
+      <li onclick="getClickedCard();"
+        class="EarthCards5 filterDiv earth event VPn1 action-black">
+        <div class="name">Snow</div>
+        <div class="VP">-1</div>
+      </li>
+    
+      <li onclick="getClickedCard();"
+        class="EarthCards5 filterDiv earth event VP0 action-black">
+        <div class="name">Flash Flood</div>
+        <div class="VP">0</div>
+      </li>
+
+      <li onclick="getClickedCard();"
+        class="EarthCards5 filterDiv earth event VP1 action-black">
+        <div class="name">Flooding</div>
+        <div class="VP">1</div>
+      </li>
+
+      <li onclick="getClickedCard();"
+        class="EarthCards5 filterDiv earth event VPn2 action-black">
+        <div class="name">Dust Storm</div>
+        <div class="VP">-2</div>
+      </li>
+
+      <li onclick="getClickedCard();"
+        class="EarthCards5 filterDiv earth event VPn1 action-black">
+        <div class="name">Waterspout</div>
+        <div class="VP">-1</div>
+      </li>
+
+      <li onclick="getClickedCard();"
+        class="EarthCards5 filterDiv earth event VPn3 action-black">
+        <div class="name">Landslide</div>
+        <div class="VP">-3</div>
+      </li>
+
+      <li onclick="getClickedCard();"
+        class="EarthCards5 filterDiv earth event VPn4 action-black">
+        <div class="name">Wildfire</div>
+        <div class="VP">-4</div>
+      </li>
+
+      <li onclick="getClickedCard();"
+        class="EarthCards5 filterDiv earth event VP0 action-black">
+        <div class="name">Cold Front</div>
+        <div class="VP">0</div>
+      </li>
+
+      <li onclick="getClickedCard();"
+        class="EarthCards5 filterDiv earth event VP0 action-black">
+        <div class="name">Geyser</div>
+        <div class="VP">0</div>
+      </li>
+
+      <li onclick="getClickedCard();"
+        class="EarthCards5 filterDiv earth event VP0 action-black">
+        <div class="name">Steam Vents</div>
+        <div class="VP">0</div>
+      </li>
+
+      <li onclick="getClickedCard();"
+        class="EarthCards5 filterDiv earth event VP0 action-black">
+        <div class="name">Mudpot</div>
+        <div class="VP">0</div>
+      </li>
+
+      <li onclick="getClickedCard();"
+        class="EarthCards5 filterDiv earth event VP1 action-black">
+        <div class="name">Rainbow</div>
+        <div class="VP">1</div>
+      </li>
+
+      <li onclick="getClickedCard();"
+        class="EarthCards5 filterDiv earth event VPn4 action-black">
+        <div class="name">Jokulhaup</div>
+        <div class="VP">-4</div>
+      </li>
+
+      <li onclick="getClickedCard();"
+        class="EarthCards5 filterDiv earth event VP0 action-black">
+        <div class="name">Fog</div>
+        <div class="VP">0</div>
+      </li>
+
+      <li onclick="getClickedCard();"
+        class="EarthCards5 filterDiv earth event VP0 action-black">
+        <div class="name">Aurora Borealis</div>
+        <div class="VP">0</div>
+      </li>
+
+      <li onclick="getClickedCard();"
+        class="EarthCards5 filterDiv earth event VP0 action-black">
+        <div class="name">Hot Spring</div>
+        <div class="VP">0</div>
+      </li>
+
+      <li onclick="getClickedCard();"
+        class="EarthCards5 filterDiv earth event VP1 action-black">
+        <div class="name">Supernova</div>
+        <div class="VP">1</div>
+      </li>
+
+      <li onclick="getClickedCard();"
+        class="EarthCards5 filterDiv earth event VPn3 action-black">
+        <div class="name">Comet</div>
+        <div class="VP">-3</div>
+      </li>
+
+      <li onclick="getClickedCard();"
+        class="EarthCards5 filterDiv earth event VP0 action-black">
+        <div class="name">Shooting Star</div>
+        <div class="VP">0</div>
+      </li>    
+
+      <li onclick="getClickedCard();"
+        class="EarthCards5 filterDiv earth event VPn4 action-black">
+        <div class="name">Asteroid</div>
+        <div class="VP">-4</div>
+      </li>
+
+      <li onclick="getClickedCard();"
+        class="EarthCards5 filterDiv earth event VP0 action-black">
+        <div class="name">Solar Flare</div>
+        <div class="VP">0</div>
+      </li>
+    
+  </ul>
+
+  <!--CLIMATE-->
+  <ul class="myUL" style="clear:both;">
+        <li onclick="getClickedCard();"
+          class="ClimateCardsA filterDiv climate VP1 sunny rocky action-red">
+          <div class="name">Arid</div>
+          <div class="VP">1</div>
+        </li>
+
+        <li onclick="getClickedCard();"
+          class="ClimateCardsA filterDiv climate VP3 sunny rocky action-yellow">
+          <div class="name">Desert</div>
+          <div class="VP">3</div>
+        </li>
+
+        <li onclick="getClickedCard();"
+          class="ClimateCardsA filterDiv climate VP1 sunny wet action-blue">
+          <div class="name">Tropical Rain Forest</div>
+          <div class="VP">1</div>
+        </li>
+
+        <li onclick="getClickedCard();"
+          class="ClimateCardsA filterDiv climate VP1 wet cold action-blue">
+          <div class="name">Marine West Coast</div>
+          <div class="VP">1</div>
+        </li>
+    
+        <li onclick="getClickedCard();"
+          class="ClimateCardsA filterDiv climate VP2 wet cold action-blue">
+          <div class="name">Boreal</div>
+          <div class="VP">2</div>
+        </li>
+
+        <li onclick="getClickedCard();"
+          class="ClimateCardsA filterDiv climate VP2 rocky cold action-yellow">
+          <div class="name">Subtropical Highland</div>
+          <div class="VP">2</div>
+        </li>
+
+        <li onclick="getClickedCard();"
+          class="ClimateCardsA filterDiv climate VP1 wet cold action-yellow">
+          <div class="name">Dry Winter Subpolar Oceanic</div>
+          <div class="VP">1</div>
+        </li>
+
+        <li onclick="getClickedCard();"
+          class="ClimateCardsA filterDiv climate VP4 sunny wet action-blue">
+          <div class="name">Tropical Monsoon</div>
+          <div class="VP">4</div>
+        </li>
+
+        <li onclick="getClickedCard();"
+          class="ClimateCardsA filterDiv climate VP2 sunny wet action-yellow">
+          <div class="name">Mediterranean Hot Summer</div>
+          <div class="VP">2</div>
+        </li>
+    
+        <li onclick="getClickedCard();"
+          class="ClimateCardsA filterDiv climate VP1 sunny wet action-yellow">
+          <div class="name">Tropical Savanna</div>
+          <div class="VP">1</div>
+        </li>
+
+        <li onclick="getClickedCard();"
+          class="ClimateCardsB filterDiv climate VP4 sunny wet action-blue">
+          <div class="name">Humid Subtropical</div>
+          <div class="VP">4</div>
+        </li>
+
+        <li onclick="getClickedCard();"
+          class="ClimateCardsB filterDiv climate VP2 wet cold action-red">
+          <div class="name">Hot Summer Continental</div>
+          <div class="VP">2</div>
+        </li>
+
+        <li onclick="getClickedCard();"
+          class="ClimateCardsB filterDiv climate VP4 rocky cold action-red">
+          <div class="name">Dry Winter Subtropical Highland</div>
+          <div class="VP">4</div>
+        </li>
+
+        <li onclick="getClickedCard();"
+          class="ClimateCardsB filterDiv climate VP4 sunny rocky action-yellow">
+          <div class="name">Mediterranean Cold Summer</div>
+          <div class="VP">4</div>
+        </li>
+
+        <li onclick="getClickedCard();"
+          class="ClimateCardsB filterDiv climate VP3 rocky cold action-red">
+          <div class="name">Ice Cap</div>
+          <div class="VP">3</div>
+        </li>
+
+        <li onclick="getClickedCard();"
+          class="ClimateCardsB filterDiv climate VP3 sunny wet action-blue">
+          <div class="name">Oceanic</div>
+          <div class="VP">3</div>
+        </li>
+
+        <li onclick="getClickedCard();"
+          class="ClimateCardsB filterDiv climate VP4 sunny rocky action-red">
+          <div class="name">Semi-Arid</div>
+          <div class="VP">4</div>
+        </li>
+
+        <li onclick="getClickedCard();"
+          class="ClimateCardsB filterDiv climate VP1 rocky cold action-red">
+          <div class="name">Tundra</div>
+          <div class="VP">1</div>
+        </li>
+
+        <li onclick="getClickedCard();"
+          class="ClimateCardsB filterDiv climate VP3 rocky cold action-red action-blue">
+          <div class="name">Subpolar Oceanic</div>
+          <div class="VP">3</div>
+        </li>
+
+        <li onclick="getClickedCard();"
+          class="ClimateCardsB filterDiv climate VP4 rocky cold action-blue">
+          <div class="name">Hemiboreal</div>
+          <div class="VP">4</div>
+        </li>
+    
+  </ul>
+
+  <!--ISLANDS-->
+  <ul class="myUL" style="clear:both;">
+
+    <li onclick="getClickedCard();"
+      class="IslandCardsA filterDiv island VP0 wet action-black action-green">
+      <div class="name">Kauai</div>
+      <div class="VP">0</div>
+    </li>
+
+    <li onclick="getClickedCard();"
+      class="IslandCardsA filterDiv island VP0 sunny rocky action-black action-brown">
+      <div class="name">Nishinomshima</div>
+      <div class="VP">0</div>
+    </li>
+
+    <li onclick="getClickedCard();"
+      class="IslandCardsA filterDiv island VP1 rocky cold action-black action-brown">
+      <div class="name">Deception</div>
+      <div class="VP">1</div>
+    </li>
+
+    <li onclick="getClickedCard();"
+      class="IslandCardsA filterDiv island VP1 wet rocky action-black action-red">
+      <div class="name">Barren</div>
+      <div class="VP">1</div>
+    </li>
+
+    <li onclick="getClickedCard();"
+      class="IslandCardsA filterDiv island VP0 sunny wet action-black action-yellow">
+      <div class="name">Mo'orea</div>
+      <div class="VP">0</div>
+    </li>
+
+    <li onclick="getClickedCard();"
+      class="IslandCardsA filterDiv island VP2 cold action-black action-green">
+      <div class="name">Kanashir</div>
+      <div class="VP">2</div>
+    </li>
+
+    <li onclick="getClickedCard();"
+      class="IslandCardsA filterDiv island VP2 wet cold action-black action-brown">
+      <div class="name">Kyushu</div>
+      <div class="VP">2</div>
+    </li>
+
+    <li onclick="getClickedCard();"
+      class="IslandCardsA filterDiv island VP5 rocky action-black action-blue">
+      <div class="name">La Palma</div>
+      <div class="VP">5</div>
+    </li>
+
+    <li onclick="getClickedCard();"
+      class="IslandCardsA filterDiv island VP3 wet cold action-black action-green">
+      <div class="name">Whakaari</div>
+      <div class="VP">3</div>
+    </li>
+    
+    <li onclick="getClickedCard();"
+      class="IslandCardsA filterDiv island VP4 rocky cold action-black action-green">
+      <div class="name">Hawai'i</div>
+      <div class="VP">4</div>
+    </li>
+
+    <li onclick="getClickedCard();"
+      class="IslandCardsB filterDiv island VP10 sunny rocky action-black action-brown">
+      <div class="name">Vulcano</div>
+      <div class="VP">10</div>
+    </li>
+
+    <li onclick="getClickedCard();"
+      class="IslandCardsB filterDiv island VP10 sunny wet action-black action-yellow">
+      <div class="name">Luzon</div>
+      <div class="VP">10</div>
+    </li>
+
+    <li onclick="getClickedCard();"
+      class="IslandCardsB filterDiv island VP9 sunny rocky action-black action-green">
+      <div class="name">Nisyros</div>
+      <div class="VP">9</div>
+    </li>
+
+    <li onclick="getClickedCard();"
+      class="IslandCardsB filterDiv island VP9 sunny action-black action-green">
+      <div class="name">Santorini</div>
+      <div class="VP">9</div>
+    </li>
+
+    <li onclick="getClickedCard();"
+      class="IslandCardsB filterDiv island VP6 wet cold action-black action-green">
+      <div class="name">Iceland</div>
+      <div class="VP">6</div>
+    </li>
+
+    <li onclick="getClickedCard();"
+      class="IslandCardsB filterDiv island VP8 wet cold action-black action-blue">
+      <div class="name">Jan Mayen</div>
+      <div class="VP">8</div>
+    </li>
+
+    <li onclick="getClickedCard();"
+      class="IslandCardsB filterDiv island VP8 sunny wet action-black action-brown">
+      <div class="name">Jamaica</div>
+      <div class="VP">8</div>
+    </li>
+
+    <li onclick="getClickedCard();"
+      class="IslandCardsB filterDiv island VP5 sunny rocky action-black action-red">
+      <div class="name">Metis Shoal</div>
+      <div class="VP">5</div>
+    </li>
+    
+    <li onclick="getClickedCard();"
+      class="IslandCardsB filterDiv island VP7 rocky cold action-black action-brown">
+      <div class="name">Fogo</div>
+      <div class="VP">7</div>
+    </li>
+
+    <li onclick="getClickedCard();"
+      class="IslandCardsB filterDiv island VP6 sunny cold action-black action-green">
+      <div class="name">Lombok</div>
+      <div class="VP">6</div>
+    </li>
+    
+  </ul>
+
+  <!--ECOSYSTEM-->
+  <ul class="myUL">
+
+      <li onclick="getClickedCard();"
+        class="EcosystemCardsA filterDiv ecosystem">
+        <div class="name">Blackforest</div>
+        <div class="card-count">19%</div>
+      </li>
+
+        <li onclick="getClickedCard();"
+        class="EcosystemCardsA filterDiv ecosystem">
+        <div class="name">Great Steppe</div>
+        <div class="card-count">19%</div>
+      </li>
+
+      <li onclick="getClickedCard();"
+        class="EcosystemCardsA filterDiv ecosystem">
+        <div class="name">Rocky Mountains</div>
+        <div class="card-count">47%</div>
+      </li>
+
+      <li onclick="getClickedCard();"
+        class="EcosystemCardsA filterDiv ecosystem">
+        <div class="name">Namib Desert</div>
+        <div class="card-count">47%</div>
+      </li>
+
+      <li onclick="getClickedCard();"
+        class="EcosystemCardsA filterDiv ecosystem">
+        <div class="name">Antartica</div>
+        <div class="card-count">14%</div>
+      </li>
+
+      <li onclick="getClickedCard();"
+        class="EcosystemCardsA filterDiv ecosystem">
+        <div class="name">Borneo Lowland Rain Forest</div>
+      </li>
+
+      <li onclick="getClickedCard();"
+        class="EcosystemCardsA filterDiv ecosystem">
+        <div class="name">MacMillan Park</div>
+        <div class="card-count">49%</div>
+      </li>
+
+      <li onclick="getClickedCard();"
+        class="EcosystemCardsA filterDiv ecosystem">
+        <div class="name">Congolian Rain Forest</div>
+        <div class="card-count">44%</div>
+      </li>
+
+      <li onclick="getClickedCard();"
+        class="EcosystemCardsA filterDiv ecosystem">
+        <div class="name">Yellowstone Caldera</div>
+        <div class="card-count">32%</div>
+      </li>
+
+      <li onclick="getClickedCard();"
+        class="EcosystemCardsA filterDiv ecosystem">
+        <div class="name">Serengeti</div>
+        <div class="card-count">32%</div>
+      </li>
+
+      <li onclick="getClickedCard();"
+        class="EcosystemCardsB filterDiv ecosystem">
+        <div class="name">Daintree</div>
+        <div class="card-count">19%</div>
+      </li>
+
+      <li onclick="getClickedCard();"
+        class="EcosystemCardsB filterDiv ecosystem">
+        <div class="name">Florida Scrub</div>
+        <div class="card-count">19%</div>
+      </li>
+
+      <li onclick="getClickedCard();"
+        class="EcosystemCardsB filterDiv ecosystem">
+        <div class="name">Nile Delta</div>
+        <div class="card-count">47%</div>
+      </li>
+
+      <li onclick="getClickedCard();"
+        class="EcosystemCardsB filterDiv ecosystem">
+        <div class="name">Denali National Park</div>
+        <div class="card-count">47%</div>
+      </li>
+
+      <li onclick="getClickedCard();"
+        class="EcosystemCardsB filterDiv ecosystem">
+        <div class="name">Great Plains</div>
+      </li>
+
+      <li onclick="getClickedCard();"
+        class="EcosystemCardsB filterDiv ecosystem">
+        <div class="name">Amazon Rain Forest</div>
+      </li>
+
+      <li onclick="getClickedCard();"
+        class="EcosystemCardsB filterDiv ecosystem">
+        <div class="name">Great Basin Desert</div>
+        <div class="card-count">51%</div>
+      </li>
+    
+      <li onclick="getClickedCard();"
+        class="EcosystemCardsB filterDiv ecosystem">
+        <div class="name">Redwood National Park</div>
+        <div class="card-count">33%</div>
+      </li>
+
+      <li onclick="getClickedCard();"
+        class="EcosystemCardsB filterDiv ecosystem">
+        <div class="name">Angat Watershed Forest</div>
+        <div class="card-count">13%</div>
+      </li>
+
+      <li onclick="getClickedCard();"
+        class="EcosystemCardsB filterDiv ecosystem">
+        <div class="name">Okavango Delta</div>
+        <div class="card-count">32%</div>
+      </li>
+    
+  </ul>
+
+  <!--FAUNA-->
+  <ul class="myUL">
+
+      <li onclick="getClickedCard();"
+        class="FaunaCardsA filterDiv fauna">
+        <div class="name">Bald Eagle</div>
+        <div class="card-count">33%</div>
+      </li>
+
+      <li onclick="getClickedCard();"
+        class="FaunaCardsA filterDiv fauna">
+        <div class="name">Yellow-Bellied Marmot</div>
+        <div class="card-count">44%</div>
+      </li>
+
+      <li onclick="getClickedCard();"
+        class="FaunaCardsA filterDiv fauna">
+        <div class="name">European Mole</div>
+      </li>
+
+      <li onclick="getClickedCard();"
+        class="FaunaCardsA filterDiv fauna">
+        <div class="name">Andean Condor</div>
+      </li>
+
+      <li onclick="getClickedCard();"
+        class="FaunaCardsA filterDiv fauna">
+        <div class="name">Mountain Lion</div>
+        <div class="card-count">47%</div>
+      </li>
+
+      <li onclick="getClickedCard();"
+        class="FaunaCardsA filterDiv fauna">
+        <div class="name">American Alligator</div>
+        <div class="card-count">47%</div>
+      </li>
+
+      <li onclick="getClickedCard();"
+        class="FaunaCardsA filterDiv fauna">
+        <div class="name">Bornean Orangutan</div>
+        <div class="card-count">19%</div>
+      </li>
+
+      <li onclick="getClickedCard();"
+        class="FaunaCardsA filterDiv fauna">
+        <div class="name">Lubber Grasshopper</div>
+        <div class="card-count">19%</div>
+      </li>
+
+          <li onclick="getClickedCard();"
+        class="FaunaCardsA filterDiv fauna">
+        <div class="name">Echidna</div>
+        <div class="card-count">32%</div>
+      </li>
+
+      <li onclick="getClickedCard();"
+        class="FaunaCardsA filterDiv fauna">
+        <div class="name">Green Iguana</div>
+        <div class="card-count">32%</div>
+      </li>
+
+      <li onclick="getClickedCard();"
+        class="FaunaCardsA filterDiv fauna">
+        <div class="name">Northern Giraffe</div>
+      </li>
+
+      <li onclick="getClickedCard();"
+        class="FaunaCardsA filterDiv fauna">
+        <div class="name">Emerald Tree Boa</div>
+      </li>
+
+      <li onclick="getClickedCard();"
+        class="FaunaCardsA filterDiv fauna">
+        <div class="name">Siamese Rhinoceros Beetle</div>
+        <div class="card-count">62%</div>
+      </li>
+
+      <li onclick="getClickedCard();"
+        class="FaunaCardsA filterDiv fauna">
+        <div class="name">Grey Wolf</div>
+        <div class="card-count">28%</div>
+      </li>
+
+      <li onclick="getClickedCard();"
+        class="FaunaCardsA filterDiv fauna">
+        <div class="name">African Bush Elephant</div>
+        <div class="card-count">49%</div>
+      </li>
+
+      <li onclick="getClickedCard();"
+        class="FaunaCardsA filterDiv fauna">
+        <div class="name">Fire Salamander</div>
+      </li>
+
+      <li onclick="getClickedCard();"
+        class="FaunaCardsA filterDiv fauna">
+        <div class="name">Rainbow Shield Bug</div>
+        <div class="card-count">8%</div>
+      </li>
+
+      <li onclick="getClickedCard();"
+        class="FaunaCardsA filterDiv fauna">
+        <div class="name">Barn Owl</div>
+        <div class="card-count">14%</div>
+      </li>
+
+          <li onclick="getClickedCard();"
+        class="FaunaCardsA filterDiv fauna">
+        <div class="name">Red-Eyed Tree Frog</div>
+        <div class="card-count">33%</div>
+      </li>
+
+      <li onclick="getClickedCard();"
+        class="FaunaCardsA filterDiv fauna">
+        <div class="name">American Bison</div>
+        <div class="card-count">19%</div>
+      </li>
+
+      <li onclick="getClickedCard();"
+        class="FaunaCardsA filterDiv fauna">
+        <div class="name">Brown-Throated Sloth</div>
+        <div class="card-count">16%</div>
+      </li>
+
+      <li onclick="getClickedCard();"
+        class="FaunaCardsA filterDiv fauna">
+        <div class="name">Mountain Gorilla</div>
+        <div class="card-count">63%</div>
+      </li>
+
+      <li onclick="getClickedCard();"
+        class="FaunaCardsA filterDiv fauna">
+        <div class="name">Sri Lankan Leopard</div>
+        <div class="card-count">38%</div>
+      </li>
+
+      <li onclick="getClickedCard();"
+        class="FaunaCardsB filterDiv fauna">
+        <div class="name">Bald</div>
+        <div class="card-count">33%</div>
+      </li>
+
+      <li onclick="getClickedCard();"
+        class="FaunaCardsB filterDiv fauna">
+        <div class="name">Pale-Billed Woodpecker</div>
+        <div class="card-count">69%</div>
+      </li>
+
+      <li onclick="getClickedCard();"
+        class="FaunaCardsB filterDiv fauna">
+        <div class="name">Red Squirrel</div>
+        <div class="card-count">69%</div>
+      </li>
+
+      <li onclick="getClickedCard();"
+        class="FaunaCardsB filterDiv fauna">
+        <div class="name">Earthworm</div>
+      </li>
+
+      <li onclick="getClickedCard();"
+        class="FaunaCardsB filterDiv fauna">
+        <div class="name">Green Tree Ant</div>
+        <div class="card-count">13%</div>
+      </li>
+
+      <li onclick="getClickedCard();"
+        class="FaunaCardsB filterDiv fauna">
+        <div class="name">Plains Zebra</div>
+        <div class="card-count">47%</div>
+      </li>
+
+      <li onclick="getClickedCard();"
+        class="FaunaCardsB filterDiv fauna">
+        <div class="name">Artic Fox</div>
+        <div class="card-count">47%</div>
+      </li>
+
+      <li onclick="getClickedCard();"
+        class="FaunaCardsB filterDiv fauna">
+        <div class="name">Siberian Tiger</div>
+        <div class="card-count">19%</div>
+      </li>
+
+      <li onclick="getClickedCard();"
+        class="FaunaCardsB filterDiv fauna">
+        <div class="name">Wild Boar</div>
+        <div class="card-count">19%</div>
+      </li>
+
+      <li onclick="getClickedCard();"
+        class="FaunaCardsB filterDiv fauna">
+        <div class="name">Kingfisher</div>
+        <div class="card-count">32%</div>
+      </li>
+
+      <li onclick="getClickedCard();"
+        class="FaunaCardsB filterDiv fauna">
+        <div class="name">Spotted Hyena</div>
+        <div class="card-count">14%</div>
+      </li>
+
+      <li onclick="getClickedCard();"
+        class="FaunaCardsB filterDiv fauna">
+        <div class="name">Cairns Birdwing Butterfly</div>
+      </li>
+
+      <li onclick="getClickedCard();"
+        class="FaunaCardsB filterDiv fauna">
+        <div class="name">King Penguin</div>
+        <div class="card-count">18%</div>
+      </li>
+
+      <li onclick="getClickedCard();"
+        class="FaunaCardsB filterDiv fauna">
+        <div class="name">Wood Duck</div>
+        <div class="card-count">38%</div>
+      </li>
+
+      <li onclick="getClickedCard();"
+        class="FaunaCardsB filterDiv fauna">
+        <div class="name">Seven-Spotted Ladbug</div>
+        <div class="card-count">72%</div>
+      </li>
+
+      <li onclick="getClickedCard();"
+        class="FaunaCardsB filterDiv fauna">
+        <div class="name">Western Honeybee</div>
+        <div class="card-count">51%</div>
+      </li>
+
+      <li onclick="getClickedCard();"
+        class="FaunaCardsB filterDiv fauna">
+        <div class="name">Panther Chameleon</div>
+        <div class="card-count">25%</div>
+      </li>
+
+      <li onclick="getClickedCard();"
+        class="FaunaCardsB filterDiv fauna">
+        <div class="name">Artic Tern</div>
+        <div class="card-count">14%</div>
+      </li>
+
+      <li onclick="getClickedCard();"
+        class="FaunaCardsB filterDiv fauna">
+        <div class="name">Talamanca Hummingbird</div>
+        <div class="card-count">14%</div>
+      </li>
+
+      <li onclick="getClickedCard();"
+        class="FaunaCardsB filterDiv fauna">
+        <div class="name">Brown Bear</div>
+        <div class="card-count">25%</div>
+      </li>
+
+      <li onclick="getClickedCard();"
+        class="FaunaCardsB filterDiv fauna">
+        <div class="name">Red Deer</div>
+        <div class="card-count">29%</div>
+      </li>
+
+      <li onclick="getClickedCard();"
+        class="FaunaCardsB filterDiv fauna">
+        <div class="name">Western Moose</div>
+        <div class="card-count">40%</div>
+      </li>
+
+      <li onclick="getClickedCard();"
+        class="FaunaCardsB filterDiv fauna">
+        <div class="name">BaBlack wildebeestld</div>
+      </li>
+
+      <li onclick="getClickedCard();"
+        class="FaunaCardsB filterDiv fauna">
+        <div class="name">Atlantic Puffin</div>
+        <div class="card-count">62%</div>
+      </li>
+    
+  </ul>
+      
+  <button id="button-load-more" class="button button2 btn-load-more" onClick="displayCards()">LOAD MORE</button>
+
+  </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="js/odometer.js"></script>
+<script src="js/myscripts-ark.js"></script>
+
+
+
+</body>
+</html>
